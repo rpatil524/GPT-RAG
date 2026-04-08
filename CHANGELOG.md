@@ -8,6 +8,7 @@ This format follows [Keep a Changelog](https://keepachangelog.com/) and adheres 
 - Updated `infra` submodule to [bicep-ptn-aiml-landing-zone](https://github.com/Azure/bicep-ptn-aiml-landing-zone) tag `v1.0.6`.
 - Parametrized Container App CPU and memory per app entry with fallback defaults (`0.5` CPU / `1.0Gi`).
 - Increased `dataingest` Container App resources to `1.0` CPU and `3.0Gi` memory.
+- Increased `text-embedding-3-large` deployment capacity from `40` to `100`.
 - Bumped `gpt-rag-ingestion` to `v2.3.2`.
 
 ## [v2.6.2] - 2026-04-01

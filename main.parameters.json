@@ -100,7 +100,7 @@
           },
           "sku": {
             "name": "Standard",
-            "capacity": 40
+            "capacity": 100
           },
           "canonical_name": "EMBEDDING_DEPLOYMENT_NAME",
           "apiVersion": "2025-01-01-preview"
