@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.  
 This format follows [Keep a Changelog](https://keepachangelog.com/) and adheres to [Semantic Versioning](https://semver.org/).
 
+## [v2.6.4] - 2026-04-14
+### Fixed
+- Restored missing `parent_id` field in the RAG search index template (`config/search/search.j2`), which was accidentally removed during the v2.6.0 merge. This caused `gpt-rag-ingestion` blob storage and SharePoint indexers to fail with `Could not find a property named 'parent_id'` errors.
+
+### Changed
+- Updated `infra` submodule to [bicep-ptn-aiml-landing-zone](https://github.com/Azure/bicep-ptn-aiml-landing-zone) tag `v1.0.7`, fixing Log Analytics provisioning failure in Sweden Central caused by `forceCmkForQuery` default.
+
 ## [v2.6.3] - 2026-04-08
 ### Changed
 - Updated `infra` submodule to [bicep-ptn-aiml-landing-zone](https://github.com/Azure/bicep-ptn-aiml-landing-zone) tag `v1.0.6`.
