@@ -1,5 +1,5 @@
 {
-  "tag": "v2.6.5",
+  "tag": "v2.6.6",
   "repo": "https://github.com/azure/gpt-rag.git",  
   "ailz_tag": "v1.0.7",
   "components": [
@@ -16,7 +16,7 @@
     {
       "name": "gpt-rag-ingestion",
       "repo": "https://github.com/azure/gpt-rag-ingestion.git",
-      "tag": "v2.3.2"
+      "tag": "v2.3.3"
     }
   ]
 }

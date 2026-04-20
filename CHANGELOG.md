@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.  
 This format follows [Keep a Changelog](https://keepachangelog.com/) and adheres to [Semantic Versioning](https://semver.org/).
 
+## [v2.6.6] - 2026-04-20
+### Added
+- **Multimodal figure/image extraction for Content Understanding** ([Azure/GPT-RAG#446](https://github.com/Azure/GPT-RAG/issues/446)): When using Content Understanding as the document analysis backend (`USE_DOCUMENT_INTELLIGENCE=false`), the multimodal chunker now extracts figures from documents, uploads them to the `documents-images` blob container, generates captions using a vision-capable model, and populates `relatedImages`, `imageCaptions`, and `captionVector` fields in the search index — achieving full multimodal parity with the Document Intelligence path. Supports PDF (PyMuPDF page rendering with bounding-box crop), DOCX (`word/media/` ZIP extraction), and PPTX (`ppt/media/` ZIP extraction). The `ContentUnderstandingClient` now parses and returns figure and page metadata from the API response instead of discarding it. New dependencies: `PyMuPDF`, `python-docx`, `python-pptx`.
+
+### Changed
+- Bumped `gpt-rag-ingestion` to `v2.3.3`.
+
+### Tested Service Versions
+
+| Component | Version |
+|---|---|
+| gpt-rag-ui | v2.3.1 |
+| gpt-rag-orchestrator | v2.6.2 |
+| gpt-rag-ingestion | v2.3.3 |
+| infra (landing zone) | v1.0.7 |
+
 ## [v2.6.5] - 2026-04-18
 ### Fixed
 - **OpenTelemetry version pinning** (orchestrator): Pinned `azure-monitor-opentelemetry==1.8.7`, `azure-monitor-opentelemetry-exporter==1.0.0b49`, `opentelemetry-instrumentation-httpx==0.61b0`, and `opentelemetry-instrumentation-fastapi==0.61b0` in `requirements.txt`. Unpinned versions caused non-deterministic Docker builds where an older exporter (referencing the removed `LogData` class) could be paired with `opentelemetry-sdk>=1.39.0`, crashing the container on startup with `ImportError: cannot import name 'LogData' from 'opentelemetry.sdk._logs'`. ([#445](https://github.com/Azure/GPT-RAG/issues/445))
